@@ -1,0 +1,200 @@
+/* style */
+
+html,
+body {
+  padding: 0;
+}
+
+/* tło */
+body {
+  font-family: "Biome", sans-serif;
+}
+
+/* pliki czcionek */
+
+@font-face {
+  font-family: "Teko";
+  src: url("fonts/Teko.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Biome";
+  src: url("fonts/Biome.ttf") format("truetype");
+}
+
+/* czcionki */
+h1 {
+  font:
+    60px "Biome",
+    sans-serif;
+  color: #09936c;
+  text-shadow: 2px 2px 2px #0720a1;
+  text-align: center;
+}
+
+.subtitlc {
+  font:
+    25px "Teko",
+    sans-serif;
+  color: #099391;
+}
+
+.center {
+  text-align: center;
+}
+
+a.button.center {
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+a.button.center:hover {
+  color: #bd6207;
+  text-decoration: none;
+  transform: translateX(-50%) scale(1.2);
+  cursor: pointer;
+}
+
+/*linki*/
+a {
+  font-family: "Teko", sans-serif;
+  font-weight: lighter;
+  font-size: 25px;
+  color: #09936c;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+nav a {
+  font-family: "Teko", sans-serif;
+  font-weight: lighter;
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+nav a:hover,
+a.button:hover {
+  color: #bd6207;
+  text-decoration: none;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+a:active {
+  color: rgb(4, 107, 225);
+}
+
+a.small {
+  font-size: 20px;
+}
+
+a.button {
+  padding: 10px 20px;
+  margin: 10px auto;
+  background-color: #00c47c;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform scale(1.2);
+}
+
+a.small:hover {
+  color: #bd6207;
+  text-decoration: none;
+  transform: scale(1);
+}
+
+a:hover {
+  color: #bd6207;
+  text-decoration: none;
+  transform: scale(1);
+}
+
+nav {
+  background-color: #00c47c;
+  padding: 15px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-left: -8px;
+  margin-top: -8px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav > div {
+  display: flex;
+  width: 100%;
+}
+
+.left {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.right {
+  margin-left: auto;
+  margin-right: 30px;
+  text-align: right;
+}
+
+.pic {
+  vertical-align: middle;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 40px);
+  padding-left: 10px;
+  background: #00c47c;
+  border: 1px solid #ccc;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.menuleft {
+  left: 0;
+}
+
+.menuright {
+  right: 0;
+}
+
+.menu.show {
+  display: block;
+}
+
+hr.small {
+  margin: 10px auto;
+  width: 180px;
+}
+
+/* blokly */
+
+#blocklyDiv {
+  height: calc(100vh - 80px);
+  width: 100%;
+}

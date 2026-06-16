@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" href="../../multimedia/ikony/icon2.png" />
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/msg/pl.js"></script>
+    <title>Editor</title>
+  </head>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="../../pl/">
+          <img
+            src="../../multimedia/ikony/BlockLog.png"
+            alt="BlockLog logo"
+            width="60"
+            class="pic"
+          />
+        </a>
+
+        <a href="../projects/pl/">Ustawienia</a>
+
+        <div class="dropdown">
+          <a href="javascript:void(0);" class="dropdown-btn">Plik▼</a>
+          <div class="menu left menuleft">
+            <a href="../team/pl/">Nowy</a>
+            <hr class="small" />
+            <a href="../history/pl/">Wczytaj</a>
+            <hr class="small" />
+            <a href="../file/pl/">Zapisz</a>
+          </div>
+        </div>
+
+        <a href="../tutorials/pl/">Debuguj</a>
+        <a href="../editor/pl/">Samouczki</a>
+      </div>
+
+      <div class="dropdown right">
+        <a href="javascript:void(0);" class="dropdown-btn">Podgląd▼</a>
+        <div class="menu left menuright">
+          <a href="javascript:void(0);">Bloczki</a>
+          <hr class="small" />
+          <a href="javascript:void(0);">Skrypt</a>
+          <hr class="small" />
+          <a href="javascript:void(0);">Konsola</a>
+        </div>
+      </div>
+
+      <div class="dropdown right">
+        <a href="javascript:void(0);" class="dropdown-btn"
+          ><img id="proglandis" class="pic" height="35" />▼</a
+        >
+        <div class="menu left menuright">
+          <a id="py" href="javascript:void(0);">Python</a>
+          <hr class="small" />
+          <a id="js" href="javascript:void(0);">JavaScript</a>
+          <hr class="small" />
+          <a href="javascript:void(0);">Wiele więcej...</a>
+        </div>
+      </div>
+
+      <div class="dropdown right">
+        <a href="javascript:void(0);" class="dropdown-btn"
+          ><img src="../../multimedia/flagi/pl.png" class="pic" height="30" />
+          ▼</a
+        >
+        <div class="menu left menuright">
+          <a href="../en/">English</a>
+          <hr class="small" />
+          <a href="../pl/">Polski</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Blockly-->
+
+    <div id="blocklyDiv" style="height: 590px; width: 100%"></div>
+    <xml id="toolbox" style="display: none">
+      <category name="START">
+        <block type="start"></block>
+      </category>
+      <category name="Podstawowe">
+        <block type="print"></block>
+        <block type="get_var"></block>
+        <block type="number"></block>
+      </category>
+      <!-- Tekst -->
+      <category name="Tekst">
+        <block type="text"></block>
+        <block type="print"></block>
+      </category>
+
+      <!-- Liczby -->
+      <category name="Liczby">
+        <block type="number"></block>
+        <block type="add"></block>
+        <block type="subtract"></block>
+        <block type="multiply"></block>
+      </category>
+
+      <!-- Zmienne -->
+      <category name="Zmienne" custom="VARIABLE">
+        <block type="get_var"></block>
+        <block type="set_var"></block>
+      </category>
+
+      <!-- Logika -->
+      <category name="Logika">
+        <block type="boolean"></block>
+        <block type="equals"></block>
+      </category>
+
+      <!-- Sterowanie -->
+      <category name="Sterowanie">
+        <block type="if"></block>
+        <block type="while"></block>
+      </category>
+    </xml>
+    <script src="../blocks.js"></script>
+
+    <script src="../../script.js"></script>
+  </body>
+</html>
