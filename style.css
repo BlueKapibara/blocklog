@@ -5,9 +5,9 @@ body {
   padding: 0;
 }
 
-/* tło */
 body {
   font-family: "Biome", sans-serif;
+  margin: 0;
 }
 
 /* pliki czcionek */
@@ -121,7 +121,7 @@ a:hover {
 
 nav {
   background-color: #00c47c;
-  padding: 15px;
+  padding: 8px;
   width: 100%;
   top: 0;
   left: 0;
@@ -147,8 +147,9 @@ nav > div {
 
 .right {
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 1%;
   text-align: right;
+  display: block; 
 }
 
 .pic {
@@ -162,6 +163,10 @@ nav > div {
 
 .dropdown-btn {
   cursor: pointer;
+}
+
+.right > .dropdown {
+  margin-left: 20px;
 }
 
 .menu {
