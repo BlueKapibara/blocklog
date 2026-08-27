@@ -3,6 +3,55 @@ console.log("generator:", Blockly.JavaScript);
 document.getElementById("proglandis").src =
   "../../multimedia/ikony/pythonicon.png";
 
+
+/* zapisywanie i odczytywanie */
+
+function saveProject() {
+  const state = Blockly.serialization.workspaces.save(workspace);
+
+  const json = JSON.stringify(state, null, 2);
+
+  const blob = new Blob([json], {
+    type: "application/json"
+  });
+
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = "projekt.json";
+
+  link.click();
+
+  URL.revokeObjectURL(link.href);
+  alert("Zapisano pomyślnie.")
+}
+
+document.getElementById("loadLink").addEventListener("click", (event) => {
+  event.preventDefault(); // żeby link nie przeładował strony
+  document.getElementById("loadProject").click();
+  alert("Niezapisany projekt zostanie utracony. Kontynuować?");
+});
+
+document.getElementById("loadProject").addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function () {
+    const state = JSON.parse(reader.result);
+
+    workspace.clear();
+    Blockly.serialization.workspaces.load(state, workspace);
+
+    workspace.trashcan.emptyContents(); // opcjonalnie czyści kosz
+  };
+
+  reader.readAsText(file);
+});
+
+/* Bloczki */
+
 Blockly.Blocks["start"] = {
   init: function () {
     this.appendDummyInput().appendField("START");
@@ -404,3 +453,23 @@ Blockly.JavaScript.forBlock['while'] = function (block) {
 const workspace = Blockly.inject("blocklyDiv", {
   toolbox: document.getElementById("toolbox"),
 });
+
+/* AUTOMATYCZNE ZAPISYWANIE W LOCALSTORAGE */
+
+workspace.addChangeListener(() => {
+  const state = Blockly.serialization.workspaces.save(workspace);
+
+  localStorage.setItem(
+    "blocklyWorkspace",
+    JSON.stringify(state)
+  );
+});
+
+const saved = localStorage.getItem("blocklyWorkspace");
+
+if (saved) {
+  Blockly.serialization.workspaces.load(
+    JSON.parse(saved),
+    workspace
+  );
+}

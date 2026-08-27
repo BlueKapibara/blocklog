@@ -1,8 +1,5 @@
 let curlang = "py";
 function lanvanish() {
-  alert(
-    "Zmieniono język programowania. Niezapisane zmiany mogą zostać utracone.",
-  );
   workspace.clear();
   workspace.clearUndo();
   workspace.trashcan.emptyContents();
@@ -35,7 +32,7 @@ document.addEventListener("click", function (event) {
   if (py.contains(event.target)) {
     event.preventDefault();
     if (curlang !== "py") {
-      lanvanish();
+      /*something will happen*/
     }
     curlang = "py";
     document.getElementById("proglandis").src =
@@ -43,7 +40,7 @@ document.addEventListener("click", function (event) {
   } else if (js.contains(event.target)) {
     event.preventDefault();
     if (curlang !== "js") {
-      lanvanish();
+      /*something will happen*/
     }
     curlang = "js";
     document.getElementById("proglandis").src =

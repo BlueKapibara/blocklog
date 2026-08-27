@@ -28,9 +28,15 @@
           <div class="menu left menuleft">
             <a href="../pl/">Nowy</a>
             <hr class="small" />
-            <a href="javascript:void(0);">Wczytaj</a>
+            <a href="javascript:void(0);" id="loadLink">Wczytaj</a>
+            <input
+              type="file"
+              id="loadProject"
+              style="display: none"
+              accept=".json"
+            />
             <hr class="small" />
-            <a href="javascript:void(0);">Zapisz</a>
+            <a href="javascript:void(0);" onclick="saveProject()">Zapisz</a>
           </div>
         </div>
 
@@ -78,7 +84,7 @@
     </nav>
 
     <!--Blockly-->
-    
+
     <div id="blocklyDiv"></div>
     <xml id="toolbox" style="display: none">
       <category name="START">

@@ -27,9 +27,15 @@
           <div class="menu left menuleft">
             <a href="../team/en/">New</a>
             <hr class="small" />
-            <a href="../history/en/">Load</a>
+            <a href="javascript:void(0);" id="loadLink">Load</a>
+            <input
+              type="file"
+              id="loadProject"
+              style="display: none"
+              accept=".json"
+            />
             <hr class="small" />
-            <a href="../file/en/">Save</a>
+            <a href="javascript:void(0);" onclick="saveProject()">Save</a>
           </div>
         </div>
 
@@ -64,7 +70,7 @@
 
         <div class="dropdown right">
           <a href="javascript:void(0);" class="dropdown-btn"
-            ><img src="../../multimedia/flagi/pl.png" class="pic" height="30" />
+            ><img src="../../multimedia/flagi/en.png" class="pic" height="30" />
             ▼</a
           >
           <div class="menu left menuright">
