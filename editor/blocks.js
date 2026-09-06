@@ -1,6 +1,8 @@
 console.log("Working");
-console.log("generator:", Blockly.JavaScript);
+
 document.getElementById("proglandis").src =
+  "../../multimedia/ikony/blocklyicon.png";
+document.getElementById("proglandis2").src =
   "../../multimedia/ikony/pythonicon.png";
 
 
