@@ -1,12 +1,16 @@
 let curlang = "blocks";
 let curlang2 = "py2";
-function lanvanish() {
-  workspace.clear();
-  workspace.clearUndo();
-  workspace.trashcan.emptyContents();
-}
+let lanmode = "python";
 
 console.log("Working");
+
+const editor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
+  mode: lanmode,
+  lineNumbers: true,
+  indentUnit: 4,
+  tabSize: 4,
+  lineWrapping: false,
+});
 
 document.addEventListener("click", function (event) {
   const dropdowns = document.querySelectorAll(".dropdown");
@@ -34,6 +38,9 @@ document.addEventListener("click", function (event) {
   const blocks = document.getElementById("blocks");
   const blocks2 = document.getElementById("blocks2");
   const reveBtn = document.getElementById("reveBtn");
+
+  const blocklydiv = document.getElementById("blocklyDiv");
+  const codearea = document.querySelector(".CodeMirror");
 
   if (py.contains(event.target)) {
     event.preventDefault();
@@ -82,9 +89,13 @@ document.addEventListener("click", function (event) {
   } else if (curlang === "py") {
     document.getElementById("proglandis").src =
       "../../multimedia/ikony/pythonicon.png";
+    lanmode = "python";
+    editor.setOption("mode", "python"); // 2. Dynamicznie zmieniamy tryb edytora!,
   } else if (curlang === "js") {
     document.getElementById("proglandis").src =
       "../../multimedia/ikony/jsicon.png";
+    lanmode = "javascript";
+    editor.setOption("mode", "javascript"); // 2. Dynamicznie zmieniamy tryb edytora!
   }
   if (curlang2 === "blocks2") {
     document.getElementById("proglandis2").src =
@@ -95,5 +106,13 @@ document.addEventListener("click", function (event) {
   } else if (curlang2 === "js2") {
     document.getElementById("proglandis2").src =
       "../../multimedia/ikony/jsicon.png";
+  }
+
+  if (curlang === "blocks") {
+    blocklydiv.style.display = "block";
+    codearea.style.display = "none";
+  } else {
+    blocklydiv.style.display = "none";
+    codearea.style.display = "block";
   }
 });

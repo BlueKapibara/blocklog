@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../style.css" />
     <link rel="icon" href="../../multimedia/ikony/icon2.png" />
+    <!-- blockly import -->
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly/msg/pl.js"></script>
+    <!-- codemirror import -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/codemirror.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/codemirror.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/mode/python/python.min.js"></script>
     <title>Editor</title>
   </head>
   <body>
@@ -26,7 +37,7 @@
         <div class="dropdown">
           <a href="javascript:void(0);" class="dropdown-btn">Plik▼</a>
           <div class="menu left menuleft">
-            <a href="../pl/">Nowy</a>
+            <a href="javascript:void(0);" id="newProject">Nowy</a>
             <hr class="small" />
             <a href="javascript:void(0);" id="loadLink">Wczytaj</a>
             <input
@@ -37,6 +48,10 @@
             />
             <hr class="small" />
             <a href="javascript:void(0);" onclick="saveProject()">Zapisz</a>
+            <hr class="small" />
+            <a href="javascript:void(0);" id="exportfile"
+              >Eksportuj</a
+            >
           </div>
         </div>
 
@@ -61,7 +76,7 @@
               <a href="javascript:void(0);">Wiele więcej...</a>
             </div>
           </div>
-          <a  id="reveBtn" href="javascript:void(0);">⇋</a>
+          <a id="reveBtn" href="javascript:void(0);">⇋</a>
           <div class="dropdown middle">
             <a href="javascript:void(0);" class="dropdown-btn"
               ><img id="proglandis2" class="pic" height="35" />▼</a
@@ -93,6 +108,9 @@
         </div>
       </div>
     </nav>
+
+    <!--CodeMirror-->
+    <textarea id="codearea"></textarea>
 
     <!--Blockly-->
 

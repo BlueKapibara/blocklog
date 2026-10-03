@@ -6,7 +6,7 @@ document.getElementById("proglandis2").src =
   "../../multimedia/ikony/pythonicon.png";
 
 
-/* zapisywanie i odczytywanie */
+/* zapisywanie, czyszczenie i odczytywanie */
 
 function saveProject() {
   const state = Blockly.serialization.workspaces.save(workspace);
@@ -30,8 +30,6 @@ function saveProject() {
 
 document.getElementById("loadLink").addEventListener("click", (event) => {
   event.preventDefault(); // żeby link nie przeładował strony
-  document.getElementById("loadProject").click();
-  alert("Niezapisany projekt zostanie utracony. Kontynuować?");
 });
 
 document.getElementById("loadProject").addEventListener("change", (event) => {
@@ -50,6 +48,14 @@ document.getElementById("loadProject").addEventListener("change", (event) => {
   };
 
   reader.readAsText(file);
+});
+
+document.getElementById("newProject").addEventListener("click", (event) => {
+  event.preventDefault();
+  alert("Niezapisany projekt zostanie utracony. Kontynuować?");
+  workspace.clear();
+  workspace.clearUndo();
+  workspace.trashcan.emptyContents();
 });
 
 /* Bloczki */
