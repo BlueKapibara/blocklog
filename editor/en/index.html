@@ -5,27 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../style.css" />
     <link rel="icon" href="../../multimedia/ikony/icon2.png" />
+    <!-- blockly import -->
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    <!-- codemirror import -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/codemirror.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/codemirror.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.21/mode/python/python.min.js"></script>
     <title>Editor</title>
   </head>
   <body>
     <nav>
       <div class="left">
-        <a href="../../en/">
+        <a href="../../pl/">
           <img
             src="../../multimedia/ikony/BlockLog.png"
-            alt="BlockLog logo"
+            alt="Codinger logo"
             width="60"
             class="pic"
           />
         </a>
 
-        <a href="../projects/en/">Settings</a>
+        <a href="../projects/pl/">Settings</a>
 
         <div class="dropdown">
           <a href="javascript:void(0);" class="dropdown-btn">File▼</a>
           <div class="menu left menuleft">
-            <a href="../team/en/">New</a>
+            <a href="javascript:void(0);" id="newProject">New</a>
             <hr class="small" />
             <a href="javascript:void(0);" id="loadLink">Load</a>
             <input
@@ -36,11 +48,13 @@
             />
             <hr class="small" />
             <a href="javascript:void(0);" onclick="saveProject()">Save</a>
+            <hr class="small" />
+            <a href="javascript:void(0);" id="exportfile">Export</a>
           </div>
         </div>
 
-        <a href="../tutorials/en/">Debug</a>
-        <a href="../editor/en/">Tutorials</a>
+        <a href="../tutorials/pl/">Debug</a>
+        <a href="../editor/pl/">Tutorials</a>
       </div>
 
       <div class="middle">
@@ -55,12 +69,12 @@
               <hr class="small" />
               <a id="js" href="javascript:void(0);">JavaScript</a>
               <hr class="small" />
-              <a id="blocks" href="javascript:void(0);">Blockly</a>
+              <a id="blocks" href="javascript:void(0);">Blocks</a>
               <hr class="small" />
               <a href="javascript:void(0);">More...</a>
             </div>
           </div>
-          <a href="javascript:void(0);" id="reveBtn">⇋</a>
+          <a id="reveBtn" href="javascript:void(0);">⇋</a>
           <div class="dropdown middle">
             <a href="javascript:void(0);" class="dropdown-btn"
               ><img id="proglandis2" class="pic" height="35" />▼</a
@@ -70,7 +84,7 @@
               <hr class="small" />
               <a id="js2" href="javascript:void(0);">JavaScript</a>
               <hr class="small" />
-              <a id="blocks2" href="javascript:void(0);">Blockly</a>
+              <a id="blocks2" href="javascript:void(0);">Blocks</a>
               <hr class="small" />
               <a href="javascript:void(0);">More...</a>
             </div>
@@ -78,7 +92,7 @@
         </div>
       </div>
 
-      <div class ="right">
+      <div class="right">
         <div class="dropdown right">
           <a href="javascript:void(0);" class="dropdown-btn"
             ><img src="../../multimedia/flagi/en.png" class="pic" height="30" />
@@ -87,11 +101,14 @@
           <div class="menu left menuright">
             <a href="../en/">English</a>
             <hr class="small" />
-            <a href="../pl/">Polski</a>
+            <a href="../pl/">Polish</a>
           </div>
         </div>
       </div>
     </nav>
+
+    <!--CodeMirror-->
+    <textarea id="codearea"></textarea>
 
     <!--Blockly-->
 
@@ -125,13 +142,13 @@
         <block type="set_var"></block>
       </category>
 
-      <!-- Logika -->
+      <!-- Logic -->
       <category name="Logic">
         <block type="boolean"></block>
         <block type="equals"></block>
       </category>
 
-      <!-- Sterowanie -->
+      <!-- Control -->
       <category name="Control">
         <block type="if"></block>
         <block type="while"></block>
@@ -140,5 +157,6 @@
     <script src="../blocks.js"></script>
 
     <script src="../../script.js"></script>
+    <script src="../system.js"></script>
   </body>
 </html>
